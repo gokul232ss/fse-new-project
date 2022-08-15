@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   companyCodeDropDownSelected: string = '';
   companyCode: String = '';
   companyObject: any;
-  stockList:any=[];
+  stockList: any = [];
 
   constructor(public dialog: MatDialog, private commonService: CommonService) { }
 
@@ -40,11 +40,11 @@ export class DashboardComponent implements OnInit {
 
   searchCompany() {
     if (this.companyCodeDropDownSelected || this.companyCode) {
-      let code = this.companyCodeDropDownSelected != null ?
+      let code = this.companyCodeDropDownSelected != null && this.companyCodeDropDownSelected != '' ?
         this.companyCodeDropDownSelected : this.companyCode;
       this.commonService.getCompanyByCode(code).subscribe(data => {
         this.companyObject = JSON.parse(JSON.stringify(data));
-        this.stockList=this.companyObject?.stockList;
+        this.stockList = this.companyObject?.stockList;
       });
     }
   }
