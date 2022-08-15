@@ -1,0 +1,30 @@
+<div>
+    <form class="company-form" [formGroup]="companyForm" (ngSubmit)="submitCompany()">
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Company Name</mat-label>
+                <input matInput placeholder="Company Name" id="name" type="text" class="form-control"
+                    formControlName="name" />
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Company CEO</mat-label>
+                <input matInput placeholder="Company CEO" id="ceo" type="text" class="form-control"
+                    formControlName="ceo" />
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Company turnover</mat-label>
+                <input matInput placeholder="Company turnover" id="turnover" type="text" class="form-control"
+                    formControlName="turnover" />
+            </mat-form-field>
+        </div>
+        <div class="form-group" style="padding-top: 50px;">
+            <button mat-raised-button color="primary" type="submit" value="submit">create</button>
+
+            <button (click)="closeClick()">close</button>
+        </div>
+    </form>
+</div>

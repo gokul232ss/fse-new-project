@@ -1,0 +1,9 @@
+<p>
+  <mat-toolbar color = "primary">
+    <span>E-Stock Market</span>
+
+    <button *ngIf="logoutPresent" (click)="logout()" >Logout
+    </button>
+  </mat-toolbar>
+</p>
+<router-outlet></router-outlet>

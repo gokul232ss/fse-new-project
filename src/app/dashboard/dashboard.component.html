@@ -1,0 +1,51 @@
+<div>
+    <div>
+        <button mat-raised-button color="primary" (click)="addNewCompany()">Add Company</button>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Company List</mat-label>
+            <mat-select [(ngModel)]="companyCodeDropDownSelected">
+                <mat-option *ngFor="let c of companyList" [value]="c.companyName">
+                    {{c.companyCode}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Company Code</mat-label>
+            <input matInput placeholder="Company Code" id="companyCode" type="text" [(ngModel)]="companyCode" />
+        </mat-form-field>
+        <button mat-button color="primary" (click)="searchCompany()">Search</button>
+    </div>
+    <div>
+        Company Code : {{companyObject?.companyCode}}
+        Company Name : {{companyObject?.companyName}}
+    </div>
+
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Stock Price</th>
+                    <th scope="col">Date And Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stk of stockList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{stk?.price}}</td>
+                    <td>{{stk?.stockDateTime}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div>
+        MIN price : {{companyObject?.minStockPrice}}
+        MAX price : {{companyObject?.maxStockPrice}}
+        AVG price : {{companyObject?.avgStockPrice}}
+    </div>
+
+</div>
