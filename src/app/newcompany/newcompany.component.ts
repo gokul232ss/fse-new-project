@@ -33,7 +33,7 @@ export class NewcompanyComponent implements OnInit {
     let map = {
       "companyCEO": this.companyForm?.get('ceo')?.value,
       "companyName": this.companyForm?.get('name')?.value,
-      "companyTuneOver": this.companyForm?.get('turnover')?.value
+      "companyTurnOver": this.companyForm?.get('turnover')?.value
     };
     this.commonService.saveCompany(map).subscribe(data => {
       this._snackBar.open('Company save successfully', 'Undo', {

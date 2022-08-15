@@ -5,8 +5,8 @@
         <mat-form-field appearance="fill">
             <mat-label>Company List</mat-label>
             <mat-select [(ngModel)]="companyCodeDropDownSelected">
-                <mat-option *ngFor="let c of companyList" [value]="c.companyName">
-                    {{c.companyCode}}
+                <mat-option *ngFor="let c of companyList" [value]="c.companyCode">
+                    {{c.companyName}}
                 </mat-option>
             </mat-select>
         </mat-form-field>

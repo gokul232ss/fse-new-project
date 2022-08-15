@@ -19,10 +19,12 @@ import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from './user.service';
 import { NewcompanyComponent } from './newcompany/newcompany.component';
 import { MatOptionModule } from '@angular/material/core';
+import { CommonService } from './common.service';
+import { ProjectInterceptor } from './project.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatOptionModule,
     MatSelectModule
   ],
-  providers: [UserService],
+  providers: [UserService, CommonService,
+    {provide: HTTP_INTERCEPTORS, useClass: ProjectInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
