@@ -28,26 +28,28 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  saveNewUser(){
-    let map = {
-      "email": this.signupForm?.get('emailId')?.value,
-      "firstName": this.signupForm?.get('firstName')?.value,
-      "lastName": this.signupForm?.get('lastName')?.value,
-      "password": this.signupForm?.get('password')?.value
-    };
-    this.commonService.saveUser(map).subscribe(data => {
-      this._snackBar.open('Company save successfully', 'Undo', {
-        duration: 3000
-      });
-      this.dialogRef.close();
-    }, error=>{
-      this._snackBar.open(error, 'Dismiss', {
-        duration: 3000
-      });
-    })
+  saveNewUser() {
+    if (this.signupForm.valid) {
+      let map = {
+        "email": this.signupForm?.get('emailId')?.value,
+        "firstName": this.signupForm?.get('firstName')?.value,
+        "lastName": this.signupForm?.get('lastName')?.value,
+        "password": this.signupForm?.get('password')?.value
+      };
+      this.commonService.saveUser(map).subscribe(data => {
+        this._snackBar.open('Company save successfully', 'Undo', {
+          duration: 3000
+        });
+        this.dialogRef.close();
+      }, error => {
+        this._snackBar.open(error, 'Dismiss', {
+          duration: 3000
+        });
+      })
+    }
   }
 
-  closeClick(){
+  closeClick() {
     this.dialogRef.close();
   }
 }

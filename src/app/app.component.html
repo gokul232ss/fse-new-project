@@ -1,8 +1,9 @@
 <p>
   <mat-toolbar color = "primary">
     <span>E-Stock Market</span>
-
-    <button *ngIf="logoutPresent" (click)="logout()" >Logout
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"  *ngIf="logoutPresent" (click)="logout()">
+      <mat-icon>login</mat-icon>
     </button>
   </mat-toolbar>
 </p>

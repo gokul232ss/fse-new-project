@@ -14,9 +14,9 @@ export class NewcompanyComponent implements OnInit {
   companyForm: FormGroup = this.createNewForm();
 
   constructor(private fb: FormBuilder, private commonService: CommonService,
-    private _snackBar: MatSnackBar, public dialogRef: MatDialogRef<NewcompanyComponent>) { 
-      this.createNewForm();
-    }
+    private _snackBar: MatSnackBar, public dialogRef: MatDialogRef<NewcompanyComponent>) {
+    this.createNewForm();
+  }
 
   ngOnInit(): void {
   }
@@ -30,25 +30,26 @@ export class NewcompanyComponent implements OnInit {
   }
 
   submitCompany() {
-    let map = {
-      "companyCEO": this.companyForm?.get('ceo')?.value,
-      "companyName": this.companyForm?.get('name')?.value,
-      "companyTurnOver": this.companyForm?.get('turnover')?.value
-    };
-    this.commonService.saveCompany(map).subscribe(data => {
-      this._snackBar.open('Company save successfully', 'Undo', {
-        duration: 3000
-      });
-      this.dialogRef.close();
-    }, error=>{
-      this._snackBar.open(error, 'Dismiss', {
-        duration: 3000
-      });
-    })
-
+    if (this.companyForm.valid) {
+      let map = {
+        "companyCEO": this.companyForm?.get('ceo')?.value,
+        "companyName": this.companyForm?.get('name')?.value,
+        "companyTurnOver": this.companyForm?.get('turnover')?.value
+      };
+      this.commonService.saveCompany(map).subscribe(data => {
+        this._snackBar.open('Company save successfully', 'Undo', {
+          duration: 3000
+        });
+        this.dialogRef.close();
+      }, error => {
+        this._snackBar.open(error, 'Dismiss', {
+          duration: 3000
+        });
+      })
+    }
   }
 
-  closeClick(){
+  closeClick() {
     this.dialogRef.close();
   }
 }

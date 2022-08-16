@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   companyCode: String = '';
   companyObject: any;
   stockList: any = [];
+  displayedColumns: boolean = false;
 
   constructor(public dialog: MatDialog, private commonService: CommonService) { }
 
@@ -49,4 +50,11 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  companyCodeChange() {
+    this.companyCodeDropDownSelected = '';
+  }
+
+  companyListChange() {
+    this.companyCode = '';
+  }
 }

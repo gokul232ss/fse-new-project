@@ -1,4 +1,4 @@
-<div>
+<div style="width: 100%;">
     <form class="company-form" [formGroup]="companyForm" (ngSubmit)="submitCompany()">
         <div class="form-group">
             <mat-form-field appearance="fill">
@@ -22,9 +22,9 @@
             </mat-form-field>
         </div>
         <div class="form-group" style="padding-top: 50px;">
-            <button mat-raised-button color="primary" type="submit" value="submit">create</button>
+            <button mat-raised-button color="primary" style="padding-right: 10px;" type="submit" value="submit">create</button>
 
-            <button (click)="closeClick()">close</button>
+            <button mat-raised-button (click)="closeClick()">close</button>
         </div>
     </form>
 </div>

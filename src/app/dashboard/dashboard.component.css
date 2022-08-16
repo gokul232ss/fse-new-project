@@ -1,0 +1,21 @@
+.mat-form-field-wrapper {
+    margin: 0.25em 0;
+    height: fit-content;
+}
+
+table {
+    width: 100%;
+    padding-right: 50px;
+    min-height: 200px;
+}
+
+th,td {
+    /* row padding */
+    padding: 5px 0;
+    /* row border */
+    border-bottom: 1px solid #2a0f74;
+    border-top: 1px solid  #2a0f74;
+    border-right:  1px solid  #2a0f74;
+    border-left:  1px solid  #2a0f74;
+    overflow-y: auto;
+   }
