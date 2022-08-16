@@ -20,4 +20,7 @@ export class CommonService {
     return this.http.get("http://localhost:8080/company/info/"+code);
   }
 
+  saveUser(createObj: any) {
+    return this.http.post("http://localhost:8080/user/createUser", createObj);
+  }
 }

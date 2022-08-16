@@ -40,6 +40,10 @@ export class NewcompanyComponent implements OnInit {
         duration: 3000
       });
       this.dialogRef.close();
+    }, error=>{
+      this._snackBar.open(error, 'Dismiss', {
+        duration: 3000
+      });
     })
 
   }
