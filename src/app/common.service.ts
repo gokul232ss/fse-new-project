@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +10,18 @@ export class CommonService {
   constructor(private http: HttpClient) { }
 
   saveCompany(createObj: any) {
-    return this.http.post("http://localhost:8080/company/register", createObj);
+    return this.http.post(environment.domain+"/company/register", createObj);
   }
 
   getAllCompanyDropDown() {
-    return this.http.get("http://localhost:8080/company/getAllCompanyForDropDown");
+    return this.http.get(environment.domain+"/company/getAllCompanyForDropDown");
   }
 
   getCompanyByCode(code: String) {
-    return this.http.get("http://localhost:8080/company/info/"+code);
+    return this.http.get(environment.domain+"/company/info/"+code);
   }
 
   saveUser(createObj: any) {
-    return this.http.post("http://localhost:8080/user/createUser", createObj);
+    return this.http.post(environment.domain+"/user/createUser", createObj);
   }
 }
